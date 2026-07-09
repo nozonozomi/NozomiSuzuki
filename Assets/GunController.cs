@@ -5,9 +5,11 @@ public class GunController : MonoBehaviour
 {
     private Rigidbody rigidbody;
     public GameObject bullet;
-    public float speed = 0.01f;
+    public float speed = 5.0f;
     public float jumpForce = 350.0f;
     Counter counter;
+
+    public bool canControl = false;
 
     private void Move() //Gunの移動に関するメソッド
     {
@@ -15,7 +17,7 @@ public class GunController : MonoBehaviour
         {
             if (this.transform.position.z <= -5)
             {
-                transform.Translate(0, 0, this.speed);
+                transform.Translate(0.0f, 0.0f, this.speed*Time.deltaTime);
                 Debug.Log("front");
             }
         }
@@ -23,7 +25,7 @@ public class GunController : MonoBehaviour
         {
             if (this.transform.position.z >= -9)
             {
-                transform.Translate(0, 0, -this.speed);
+                transform.Translate(0.0f, 0.0f, -this.speed*Time.deltaTime);
                 Debug.Log("back");
             }
         }
@@ -31,7 +33,7 @@ public class GunController : MonoBehaviour
         {
             if (this.transform.position.x >= -9.5)
             {
-                transform.Translate(-this.speed, 0, 0);
+                transform.Translate(-this.speed*Time.deltaTime, 0.0f, 0.0f);
                 Debug.Log("left");
             }
         }
@@ -39,7 +41,7 @@ public class GunController : MonoBehaviour
         {
             if (this.transform.position.x <= 9.5)
             {
-                transform.Translate(this.speed, 0, 0);
+                transform.Translate(this.speed*Time.deltaTime, 0.0f, 0.0f);
                 Debug.Log("right");
             }
         }
@@ -74,6 +76,11 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
+        if(canControl == false) //canControlがfalseのとき
+        {
+            return; //Update()を実行しない
+        }
+        
         Move();
         Jump();
         Shoot();     

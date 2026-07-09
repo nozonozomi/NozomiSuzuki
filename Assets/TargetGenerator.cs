@@ -8,15 +8,19 @@ public class TargetGenerator : MonoBehaviour
     private float positionZ;
     private float time;
     public float TargetSpawnDistance = 6.0f;
-    public GameObject target;
+    public GameObject[] targets;
 
     private void TargetGenerate() //Targetの生成
     {
         positionX = Random.Range(-8.0f, 8.0f);
-        positionY = Random.Range( 0.5f, 2.0f);
+        positionY = Random.Range( 0.2f, 0.5f);
         positionZ = Random.Range( 0.0f, 8.0f);
         Vector3 targetPosition = new Vector3(positionX,positionY,positionZ);
-        GameObject randomTarget = Instantiate(target,targetPosition,Quaternion.identity);
+
+        int randomIndex = Random.Range(0, targets.Length);
+
+        Quaternion rotation = Quaternion.Euler(0, 180, 0);
+        Instantiate(targets[randomIndex], targetPosition, rotation);
     }
 
     void Start()

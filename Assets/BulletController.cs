@@ -15,11 +15,18 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) //Bulletが何かと衝突したとき
     {
+        if (counter != null && counter.isGameEnd) //ゲーム終了のとき
+        {
+            Destroy(gameObject); //Bulletを消す
+            return; //何もしない
+        }
+        
         if (collision.gameObject.tag == "Target") //Targetというタグがついた物体だった場合
         {
             if (counter != null)
             {
                 counter.hitCount++;
+                counter.PlayHitSound(); //HitAudioを再生する
                 Debug.Log(counter.hitCount + " Hit");
             }
         }
