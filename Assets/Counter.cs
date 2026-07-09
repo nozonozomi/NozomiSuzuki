@@ -23,6 +23,7 @@ public class Counter : MonoBehaviour
     private AudioSource bgmAudio;
     private AudioSource clearAudio;
     private AudioSource gameoverAudio;
+    private AudioSource minusAudio;
 
     public bool isGameEnd = false; //ゲームオーバーかどうかの判定
 
@@ -37,7 +38,8 @@ public class Counter : MonoBehaviour
         bgmAudio = audioSources[2]; // BGMのAudioSourceを取得
         clearAudio = audioSources[3]; // ClearAudioのAudioSourceを取得
         gameoverAudio = audioSources[4]; // GameOverAudioのAudioSourceを取得
-        
+        minusAudio = audioSources[5]; // MinusAudioのAudioSourceを取得
+
         gun.canControl = false; //Gunの操作を不可能にする
 
         startAudio.Play(); //StartAudioを再生する
@@ -84,6 +86,11 @@ public class Counter : MonoBehaviour
     public void PlayHitSound() //HitAudioを再生するメソッド
     {
         hitAudio.Play();
+    }
+
+    public void PlayMinusSound() //MinusAudioを再生するメソッド
+    {
+        minusAudio.Play();
     }
 
     void GameEnd() //ゲーム終了時の処理

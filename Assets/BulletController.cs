@@ -30,6 +30,16 @@ public class BulletController : MonoBehaviour
                 Debug.Log(counter.hitCount + " Hit");
             }
         }
+        
+        if (collision.gameObject.CompareTag("Object")) //Objectというタグがついた物体だった場合
+        {
+            if (counter != null)
+            {
+                counter.hitCount--;
+                counter.PlayMinusSound(); //MinusAudioを再生する
+                Debug.Log(counter.hitCount + " Hit");
+            }
+        }
         Invoke("destroyBullet", 1); //一秒後にdestroyBullet()を呼び出す
     }
 
