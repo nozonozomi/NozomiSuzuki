@@ -1,0 +1,18 @@
+Table of Content
+i) Introduction
+ii) About
+iii) Outro
+
+Introduction
+
+This gun model was taken out of Gun Assets Pack (Part 3) --- It is meant as a free version. To get 9 + 1 more of this, you can decide to buy the model or just leave us a feedback so we can improve.
+This documentation includes necessary information regarding the asset.
+
+About
+
+The model included in the asset pack is a model of a scifi gun. A scifi gun with minimum vertices and editable materials. Blender file is included for 3d artist.
+Unlike other packs, this doesn't come with extra requests. However, all guns in our entire gun assets packs provide the request for bullets if needed. 
+
+Outro
+
+Thanks for your purchase! Don't forget to leave a feedback or critique. This will help us improve our future releases!

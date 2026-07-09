@@ -8,6 +8,8 @@ public class BulletController : MonoBehaviour
     public float speed = 25.0f;
     Counter counter;
 
+    public GameObject minusEffect; //MinusEffectのPrefabを入れる
+
     public void SetCounter(Counter c)
     {
         this.counter = c;
@@ -37,6 +39,9 @@ public class BulletController : MonoBehaviour
             {
                 counter.hitCount--;
                 counter.PlayMinusSound(); //MinusAudioを再生する
+
+                Instantiate(minusEffect, collision.contacts[0].point, Quaternion.identity); //MinusEffectを生成する
+                
                 Debug.Log(counter.hitCount + " Hit");
             }
         }

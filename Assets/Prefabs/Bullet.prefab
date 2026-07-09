@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+  minusEffect: {fileID: 4645681024553833565, guid: 2e465cfb04a10e546845702efdea90e6,
+    type: 3}
 --- !u!54 &7019754020478138952
 Rigidbody:
   m_ObjectHideFlags: 0
